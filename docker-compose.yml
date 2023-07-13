@@ -1,0 +1,13 @@
+---
+version: '3'
+services:
+  proxy:
+    image: xtrasimplicity/cb-app-control-reverse-proxy:latest
+    build: .
+    environment:
+      CB_APP_CONTROL_SERVER: 10.0.0.1 # The IP or hostname of the App Control server
+    volumes:
+      - /etc/localtime:/etc/localtime
+    ports:
+      - 41002:41002
+      - 80:80
